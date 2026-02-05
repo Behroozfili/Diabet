@@ -347,5 +347,6 @@ For issues or questions:
 ---
 
 **Happy training! 🚀**
-#   D i a b e t  
+#   D i a b e t 
+ 
  
