@@ -44,5 +44,5 @@ MLFLOW_TRACKING_URI = "http://127.0.0.1:5000"
 # ============================================================================
 # DagShub Configuration (Optional - if using DagShub)
 # ============================================================================
-# DAGSHUB_REPO_OWNER = "your-username"
-# DAGSHUB_REPO_NAME = "diabetes-prediction"
+ DAGSHUB_REPO_OWNER = "behrooz.filzadeh"
+ DAGSHUB_REPO_NAME = "Diabet""

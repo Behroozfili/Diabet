@@ -28,15 +28,16 @@ Execution flow:
 import os
 import sys
 import config
+import dagshub
+from confing import DAGSHUB_REPO_OWNER, DAGSHUB_REPO_NAME
 from src.data_prep import preprocess_data
 from src.model_factory import create_model
 from src.trainer import train_model, setup_mlflow, log_experiment
 from src.utils import save_model, save_scaler
-
-# Optional DagShub initialization (requires credentials)
-# import dagshub
-# dagshub.init(repo_owner="your-username", repo_name="diabetes-prediction", mlflow=True)
-
+ 
+dagshub.init(repo_owner=DAGSHUB_REPO_OWNER,
+             repo_name=DAGSHUB_REPO_NAME,
+             mlflow=True)
 
 def main():
     """
