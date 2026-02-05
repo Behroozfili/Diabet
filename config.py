@@ -8,6 +8,7 @@ including model hyperparameters, data paths, and test parameters.
 import os
 from pathlib import Path
 
+
 # ============================================================================
 # Project Root Directory
 # ============================================================================
@@ -39,7 +40,7 @@ TEST_SIZE = 0.2
 # MLflow Configuration
 # ============================================================================
 MLFLOW_EXPERIMENT_NAME = "diabetes-prediction"
-MLFLOW_TRACKING_URI = "http://127.0.0.1:5000"
+MLFLOW_TRACKING_URI = f"https://dagshub.com/{DAGSHUB_REPO_OWNER}/{DAGSHUB_REPO_NAME}.mlflow"
 
 # ============================================================================
 # DagShub Configuration (Optional - if using DagShub)
