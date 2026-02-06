@@ -37,13 +37,15 @@ RANDOM_STATE = 42
 TEST_SIZE = 0.2
 
 # ============================================================================
+# DagShub Configuration (Optional - if using DagShub)
+# ============================================================================
+DAGSHUB_REPO_OWNER = "behrooz.filzadeh"
+DAGSHUB_REPO_NAME = "Diabet"
+
+# ============================================================================
 # MLflow Configuration
 # ============================================================================
 MLFLOW_EXPERIMENT_NAME = "diabetes-prediction"
 MLFLOW_TRACKING_URI = f"https://dagshub.com/{DAGSHUB_REPO_OWNER}/{DAGSHUB_REPO_NAME}.mlflow"
 
-# ============================================================================
-# DagShub Configuration (Optional - if using DagShub)
-# ============================================================================
- DAGSHUB_REPO_OWNER = "behrooz.filzadeh"
- DAGSHUB_REPO_NAME = "Diabet""
+

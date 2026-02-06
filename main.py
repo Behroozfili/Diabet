@@ -1,4 +1,4 @@
-"""
+r"""
 ================================================================================
 IMPORTANT: VIRTUAL ENVIRONMENT ACTIVATION REMINDER
 ================================================================================
@@ -29,14 +29,13 @@ import os
 import sys
 import config
 import dagshub
-from confing import DAGSHUB_REPO_OWNER, DAGSHUB_REPO_NAME
 from src.data_prep import preprocess_data
 from src.model_factory import create_model
 from src.trainer import train_model, setup_mlflow, log_experiment
 from src.utils import save_model, save_scaler
  
-dagshub.init(repo_owner=DAGSHUB_REPO_OWNER,
-             repo_name=DAGSHUB_REPO_NAME,
+dagshub.init(repo_owner=config.DAGSHUB_REPO_OWNER,
+             repo_name=config.DAGSHUB_REPO_NAME,
              mlflow=True)
 
 def main():
@@ -123,9 +122,11 @@ def main():
             "max_depth": config.MAX_DEPTH,
             "random_state": config.RANDOM_STATE,
             "test_size": config.TEST_SIZE,
+            
+
         }
 
-        run_id = log_experiment(trained_model, metrics, model_params)
+        run_id = log_experiment(trained_model, metrics, model_params, X_test, training_results["y_pred"])
         print(f"  - Run ID: {run_id}")
 
         # ====================================================================

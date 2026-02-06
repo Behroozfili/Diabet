@@ -10,6 +10,7 @@ import mlflow
 import mlflow.sklearn
 from sklearn.metrics import accuracy_score, f1_score, precision_score
 import config
+from mlflow.models import infer_signature
 
 
 def train_model(model, X_train, y_train, X_test, y_test):
@@ -49,7 +50,7 @@ def train_model(model, X_train, y_train, X_test, y_test):
     }
 
 
-def log_experiment(model, metrics, model_params):
+def log_experiment(model, metrics, model_params, X_test, y_pred):
     """
     Log model parameters, metrics, and the model artifact to MLflow.
 
@@ -61,6 +62,7 @@ def log_experiment(model, metrics, model_params):
     Returns:
         str: The MLflow run ID.
     """
+    signature = infer_signature(X_test, y_pred)
     with mlflow.start_run():
         # Log model parameters
         mlflow.log_params(model_params)
@@ -69,7 +71,7 @@ def log_experiment(model, metrics, model_params):
         mlflow.log_metrics(metrics)
 
         # Log the model using mlflow.sklearn
-        mlflow.sklearn.log_model(model, artifact_path="model")
+        mlflow.sklearn.log_model(model, artifact_path="model", signature=signature)
 
         # Get the run ID
         run_id = mlflow.active_run().info.run_id
