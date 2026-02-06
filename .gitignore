@@ -46,3 +46,7 @@ Thumbs.db
 
 !data/**/*.dvc
 /models
+
+!data/
+
+!data/**
