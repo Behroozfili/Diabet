@@ -29,7 +29,7 @@ import os
 import sys
 import config
 import dagshub
-from src.data_prep import preprocess_data
+from src.data_prep import preprocess_data, save_processed_data
 from src.model_factory import create_model
 from src.trainer import train_model, setup_mlflow, log_experiment
 from src.utils import save_model, save_scaler
@@ -89,6 +89,20 @@ def main():
 
         print(f"  - Training set shape: {X_train.shape}")
         print(f"  - Testing set shape: {X_test.shape}")
+
+        # ====================================================================
+        # Step 2.5: Save Processed Data to Disk
+        # ====================================================================
+        print("\n[Step 2.5] Saving processed data for DVC tracking...")
+        from src.data_prep import save_processed_data
+        
+        save_processed_data(
+            X_train, 
+            X_test, 
+            y_train, 
+            y_test, 
+            config.DATA_PATHS["processed"]
+        )
 
         # ====================================================================
         # Step 3: Create Model

@@ -152,3 +152,14 @@ if __name__ == "__main__":
         print(f"Testing set shape: {preprocessed['X_test'].shape}")
     else:
         print(f"Sample data file not found at {sample_file}")
+
+        
+def save_processed_data(X_train, X_test, y_train, y_test, output_dir):
+    """ذخیره داده‌های پردازش شده در پوشه مشخص شده"""
+    os.makedirs(output_dir, exist_ok=True)
+    pd.DataFrame(X_train).to_csv(os.path.join(output_dir, "X_train_scaled.csv"), index=False)
+    pd.DataFrame(X_test).to_csv(os.path.join(output_dir, "X_test_scaled.csv"), index=False)
+    y_train.to_csv(os.path.join(output_dir, "y_train.csv"), index=False)
+    y_test.to_csv(os.path.join(output_dir, "y_test.csv"), index=False)
+    
+    print(f"Processed data saved to {output_dir}")
