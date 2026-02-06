@@ -1,5 +1,5 @@
 stages:
-  full_pipeline:
+  train:
     cmd: python main.py
     deps:
     - data/raw

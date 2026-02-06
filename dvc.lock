@@ -1,6 +1,6 @@
 schema: '2.0'
 stages:
-  full_pipeline:
+  train:
     cmd: python main.py
     deps:
     - path: data/raw
