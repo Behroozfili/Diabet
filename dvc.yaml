@@ -1,0 +1,10 @@
+stages:
+  full_pipeline:
+    cmd: python main.py
+    deps:
+      - main.py
+      - src/
+      - data/raw/
+    outs:
+      - data/processed/
+      - models/
