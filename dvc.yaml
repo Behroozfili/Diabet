@@ -3,8 +3,8 @@ stages:
     cmd: python main.py
     deps:
       - main.py
-      - src/
-      - data/raw/
+      - src
+      - data/raw
     outs:
-      - data/processed/
-      - models/
+      - data/processed
+      - models
