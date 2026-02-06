@@ -2,9 +2,9 @@ stages:
   full_pipeline:
     cmd: python main.py
     deps:
-      - main.py
-      - src
-      - data/raw.dvc
+    - data/raw
+    - main.py
+    - src
     outs:
-      - data/processed
-      - models
+    - data/processed
+    - models

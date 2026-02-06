@@ -3,7 +3,7 @@ stages:
   full_pipeline:
     cmd: python main.py
     deps:
-    - path: data/raw/
+    - path: data/raw
       hash: md5
       md5: b9be05f1a6199ddcd0dcd4999059016a.dir
       size: 23873
@@ -12,18 +12,18 @@ stages:
       hash: md5
       md5: fb918ef4565f526c7a95441b1cc4ee7e
       size: 6962
-    - path: src/
+    - path: src
       hash: md5
       md5: 7d2399183f344d962becbf3ee7206cb6.dir
       size: 36373
       nfiles: 10
     outs:
-    - path: data/processed/
+    - path: data/processed
       hash: md5
       md5: 21b326a1553d968f9e50b54416c30573.dir
       size: 124128
       nfiles: 4
-    - path: models/
+    - path: models
       hash: md5
       md5: c07bfed41304ed63e0f978488dc19a18.dir
       size: 1423504
